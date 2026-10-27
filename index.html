@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360fit | Devin Sherrington - High Intensity Fitness & Fat Loss Coach</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f7fee7',
+                            100: '#ecfccb',
+                            400: '#a3e635',
+                            500: '#84cc16', // Core 360fit Neon Lime Green
+                            600: '#65a30d',
+                            700: '#4d7c0f',
+                            glow: '#a3e635',
+                        },
+                        darkBg: '#090a0f',
+                        cardBg: '#12141c',
+                        cardBorder: '#1f2430'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #090a0f;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+        }
+        .font-display {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .neon-glow {
+            box-shadow: 0 0 25px rgba(132, 204, 22, 0.25);
+        }
+        .neon-text-glow {
+            text-shadow: 0 0 12px rgba(132, 204, 22, 0.4);
+        }
+        .glass-card {
+            background: rgba(18, 20, 28, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card:hover {
+            border-color: rgba(132, 204, 22, 0.4);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-black">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-gray-800/60 bg-darkBg/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full bg-black border-2 border-brand-500 flex items-center justify-center font-display font-extrabold text-brand-500 text-lg group-hover:scale-105 transition-transform">
+                    360
+                </div>
+                <div>
+                    <span class="font-display font-black text-xl tracking-wider text-white block leading-none">360<span class="text-brand-500">FIT</span></span>
+                    <span class="text-[10px] tracking-widest text-gray-400 uppercase font-semibold block mt-0.5">High Intensity Fitness</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#about" class="hover:text-brand-500 transition-colors">About Devin</a>
+                <a href="#services" class="hover:text-brand-500 transition-colors">Programs</a>
+                <a href="#calculator" class="hover:text-brand-500 transition-colors">Fitness Calculator</a>
+                <a href="#reviews" class="hover:text-brand-500 transition-colors">Results</a>
+                <a href="#contact" class="hover:text-brand-500 transition-colors">Location</a>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="tel:9024072525" class="text-sm font-semibold text-gray-300 hover:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-brand-500"></i> (902) 407-2525
+                </a>
+                <a href="#intake" class="px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-black font-bold text-sm transition-all shadow-lg hover:shadow-brand-500/20">
+                    Get Started Free
+                </a>
+            </div>
+
+            <!-- Mobile Menu Trigger -->
+            <button id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-white text-2xl focus:outline-none p-2">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-cardBg border-b border-gray-800 px-6 py-6 space-y-4">
+            <a href="#about" class="block text-gray-300 hover:text-brand-500 font-medium py-2">About Devin</a>
+            <a href="#services" class="block text-gray-300 hover:text-brand-500 font-medium py-2">Programs</a>
+            <a href="#calculator" class="block text-gray-300 hover:text-brand-500 font-medium py-2">Fitness Calculator</a>
+            <a href="#reviews" class="block text-gray-300 hover:text-brand-500 font-medium py-2">Results & Reviews</a>
+            <a href="#contact" class="block text-gray-300 hover:text-brand-500 font-medium py-2">Location & Contact</a>
+            <div class="pt-4 border-t border-gray-800 flex flex-col gap-3">
+                <a href="tel:9024072525" class="text-center py-2.5 rounded-xl border border-gray-700 text-gray-200 font-semibold text-sm">
+                    <i class="fa-solid fa-phone text-brand-500 mr-2"></i> Call (902) 407-2525
+                </a>
+                <a href="#intake" class="text-center py-2.5 rounded-xl bg-brand-500 text-black font-bold text-sm">
+                    Get Started Free
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
+        <!-- Background Gradient Effects -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-[140px] -z-10 pointer-events-none"></div>
+        <div class="absolute top-10 right-10 w-72 h-72 bg-emerald-500/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+                <!-- Left Column Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-xs sm:text-sm font-semibold tracking-wide uppercase">
+                        <i class="fa-solid fa-location-dot"></i> Dartmouth &amp; Halifax, Nova Scotia
+                    </div>
+
+                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-none">
+                        LOSE FAT &amp; BOOST ENERGY <br class="hidden sm:inline"/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-brand-500 to-emerald-400 neon-text-glow">
+                            WITHOUT GIVING UP PIZZA &amp; WINE 🍕🍷
+                        </span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-gray-300 max-w-2xl font-normal leading-relaxed mx-auto lg:mx-0">
+                        High-intensity fitness coaching, customized nutritional planning, and expert accountability designed specifically for busy adults who want real, sustainable results.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#intake" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-500 hover:bg-brand-400 text-black font-extrabold text-base transition-all transform hover:-translate-y-0.5 shadow-xl shadow-brand-500/25 text-center">
+                            Start Free Assessment <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="https://osdqjt1ztjw.typeform.com/to/wDt0U2Ur" target="_blank" rel="noopener" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-gray-700 hover:border-brand-500/60 bg-cardBg/60 text-white font-bold text-base transition-all hover:bg-cardBg text-center flex items-center justify-center gap-2">
+                            <span>Open Typeform</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs text-brand-400"></i>
+                        </a>
+                    </div>
+
+                    <!-- Trust Stats Bar -->
+                    <div class="pt-8 border-t border-gray-800/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
+                        <div>
+                            <div class="font-display font-black text-2xl sm:text-3xl text-brand-400">98%</div>
+                            <div class="text-xs text-gray-400 font-medium mt-0.5">Recommended (225+ Reviews)</div>
+                        </div>
+                        <div>
+                            <div class="font-display font-black text-2xl sm:text-3xl text-white">2007</div>
+                            <div class="text-xs text-gray-400 font-medium mt-0.5">Transforming Dartmouth Since</div>
+                        </div>
+                        <div>
+                            <div class="font-display font-black text-2xl sm:text-3xl text-brand-400">9.5K+</div>
+                            <div class="text-xs text-gray-400 font-medium mt-0.5">Facebook Followers</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column Card Showcase -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Glow behind card -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-500 to-emerald-500 rounded-3xl blur-xl opacity-30"></div>
+
+                        <!-- Coach Profile Card -->
+                        <div class="relative glass-card rounded-3xl p-6 sm:p-8 space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="relative">
+                                    <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-brand-500 shadow-md">
+                                        <img src="https://placehold.co/200x200/18181b/84cc16?text=Devin+S" alt="Devin Sherrington" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/200x200/18181b/ffffff?text=Devin'">
+                                    </div>
+                                    <span class="absolute bottom-0 right-0 w-5 h-5 bg-brand-500 border-2 border-darkBg rounded-full flex items-center justify-center text-[10px] text-black font-black" title="Verified Coach">✓</span>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <h3 class="font-display font-extrabold text-xl text-white">Devin Sherrington</h3>
+                                        <i class="fa-solid fa-circle-check text-brand-400 text-sm" title="Verified Fitness Specialist"></i>
+                                    </div>
+                                    <p class="text-sm text-brand-400 font-medium">Founder &amp; Head Fat Loss Coach</p>
+                                    <p class="text-xs text-gray-400 mt-1"><i class="fa-solid fa-graduation-cap"></i> St. Francis Xavier Alumni ('97)</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-darkBg/70 rounded-2xl p-4 border border-gray-800 text-sm space-y-2">
+                                <div class="flex items-center justify-between text-gray-300">
+                                    <span><i class="fa-solid fa-fire text-orange-500 mr-2"></i>Specialty</span>
+                                    <span class="font-bold text-white">Fat Loss &amp; Energy Boost</span>
+                                </div>
+                                <div class="flex items-center justify-between text-gray-300">
+                                    <span><i class="fa-solid fa-dumbbell text-brand-400 mr-2"></i>Experience</span>
+                                    <span class="font-bold text-white">18+ Years Coaching</span>
+                                </div>
+                                <div class="flex items-center justify-between text-gray-300">
+                                    <span><i class="fa-solid fa-bullseye text-emerald-400 mr-2"></i>Approach</span>
+                                    <span class="font-bold text-white">No Extreme Restraints</span>
+                                </div>
+                            </div>
+
+                            <p class="text-xs text-gray-300 border-l-2 border-brand-500 pl-3 py-1">
+                                <strong class="text-white">The 360fit philosophy:</strong> fat loss works when the plan fits real life — family dinners, a social life, and food you actually enjoy. No extreme restraints, no boring diets.
+                            </p>
+
+                            <a href="#intake" class="block w-full py-3 rounded-xl border border-brand-500/50 hover:bg-brand-500 hover:text-black text-brand-400 font-bold text-center text-sm transition-all">
+                                Claim Free Personal Training Consultation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Devin Sherrington Section -->
+    <section id="about" class="py-20 bg-cardBg/40 border-y border-gray-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+                <div class="lg:col-span-5 order-2 lg:order-1">
+                    <div class="glass-card rounded-3xl p-8 relative overflow-hidden">
+                        <div class="absolute -top-10 -right-10 w-40 h-40 bg-brand-500/10 rounded-full blur-2xl"></div>
+                        <h4 class="font-display text-xs font-bold text-brand-400 uppercase tracking-widest mb-2">The 360fit Story</h4>
+                        <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-white mb-4">Built on Real Science &amp; Real Life Experience</h3>
+
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                            Founded in 2007 in Dartmouth, Nova Scotia, 360fit was built on a simple premise: fitness should make your life better, not miserable.
+                        </p>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Devin Sherrington (former Personal Trainer and Group Fitness Instructor) holds a background from St. Francis Xavier University and has spent nearly two decades refining fat loss coaching for busy parents, professionals, and adults who don't have hours to spend in a gym every day.
+                        </p>
+
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3 text-sm text-gray-200">
+                                <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
+                                <span><strong>High-Intensity Workouts:</strong> Maximize calorie burn in 45 minutes or less.</span>
+                            </div>
+                            <div class="flex items-start gap-3 text-sm text-gray-200">
+                                <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
+                                <span><strong>Flexible Nutrition:</strong> Enjoy meals with family and friends without guilt.</span>
+                            </div>
+                            <div class="flex items-start gap-3 text-sm text-gray-200">
+                                <i class="fa-solid fa-circle-check text-brand-400 mt-1"></i>
+                                <span><strong>Unmatched Community:</strong> Join hundreds of Dartmouth locals supporting each other.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+                    <div class="inline-block text-brand-400 font-semibold text-sm uppercase tracking-wider">Meet Your Coach</div>
+                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">
+                        "I help busy people lose fat without sacrificing the food and lifestyle they love."
+                    </h2>
+                    <p class="text-gray-300 text-base leading-relaxed">
+                        Whether you are looking for high-energy group bootcamps, 1-on-1 personal training at our Dartmouth facility, or structured online nutrition guidance, 360fit gives you the exact blueprint you need.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-2xl bg-darkBg border border-gray-800">
+                            <div class="text-brand-400 text-xl mb-2"><i class="fa-solid fa-user-group"></i></div>
+                            <h4 class="font-bold text-white text-base">Group Bootcamps</h4>
+                            <p class="text-gray-400 text-xs mt-1">High-energy, coach-led fitness sessions tailored for all fitness levels.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-darkBg border border-gray-800">
+                            <div class="text-brand-400 text-xl mb-2"><i class="fa-solid fa-bullseye"></i></div>
+                            <h4 class="font-bold text-white text-base">1-on-1 Personal Training</h4>
+                            <p class="text-gray-400 text-xs mt-1">Direct personal coaching focused on your individual goals and movement patterns.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-darkBg border border-gray-800">
+                            <div class="text-brand-400 text-xl mb-2"><i class="fa-solid fa-utensils"></i></div>
+                            <h4 class="font-bold text-white text-base">Nutritional Planning</h4>
+                            <p class="text-gray-400 text-xs mt-1">Simple, flexible diet strategies that fit real-life schedules and cravings.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-darkBg border border-gray-800">
+                            <div class="text-brand-400 text-xl mb-2"><i class="fa-solid fa-laptop-code"></i></div>
+                            <h4 class="font-bold text-white text-base">Project Fit Online</h4>
+                            <p class="text-gray-400 text-xs mt-1">Remote accountability, custom workout plans, and nutrition tracking anywhere.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-400 font-bold text-xs uppercase tracking-widest px-3 py-1 bg-brand-500/10 rounded-full border border-brand-500/20">Our Programs</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white">Designed For Real Results</h2>
+                <p class="text-gray-400 text-base">Choose the coaching option that best matches your lifestyle, schedule, and goals.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Card 1 -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between group transition-all hover:-translate-y-1">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-person-running"></i>
+                        </div>
+                        <h3 class="font-display font-extrabold text-xl text-white mb-2">High Intensity Fitness Classes</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Dynamic, fast-paced group boot camps designed to burn calories, build lean muscle, and boost cardiovascular stamina in a supportive setting.
+                        </p>
+                    </div>
+                    <a href="#intake" class="inline-flex items-center text-brand-400 font-bold text-sm hover:text-brand-300">
+                        Learn More <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between group transition-all hover:-translate-y-1 border-brand-500/40 relative">
+                    <span class="absolute -top-3 right-6 bg-brand-500 text-black text-[10px] font-black uppercase px-3 py-1 rounded-full shadow">Most Popular</span>
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-brand-500/20 border border-brand-500/50 flex items-center justify-center text-brand-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <h3 class="font-display font-extrabold text-xl text-white mb-2">Personal Training</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            1-on-1 custom workouts focused on posture, form, strength, and tailored fat-loss programming with Coach Devin at our Dartmouth location.
+                        </p>
+                    </div>
+                    <a href="#intake" class="inline-flex items-center text-brand-400 font-bold text-sm hover:text-brand-300">
+                        Book Trial Session <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between group transition-all hover:-translate-y-1">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-apple-whole"></i>
+                        </div>
+                        <h3 class="font-display font-extrabold text-xl text-white mb-2">Nutritional Planning</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            No rigid, unlivable diets. We build realistic meal strategies that allow you to lose fat while keeping foods you love like pizza and wine.
+                        </p>
+                    </div>
+                    <a href="#intake" class="inline-flex items-center text-brand-400 font-bold text-sm hover:text-brand-300">
+                        Get Diet Blueprint <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Fitness Calculator Section -->
+    <section id="calculator" class="py-20 bg-cardBg/60 border-y border-gray-800/80 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-brand-400 font-bold text-xs uppercase tracking-widest">Free Tool</span>
+                <h2 class="font-display text-3xl font-extrabold text-white mt-1">Interactive Daily Calorie &amp; BMI Calculator</h2>
+                <p class="text-gray-400 text-sm mt-2">Get an instant baseline of your body metrics to kickstart your fat loss journey.</p>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6 sm:p-10">
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Gender</label>
+                        <select id="calcGender" class="w-full bg-darkBg border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-500 focus:outline-none">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Age</label>
+                        <input type="number" id="calcAge" value="35" placeholder="Years" class="w-full bg-darkBg border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-500 focus:outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Height (cm)</label>
+                        <input type="number" id="calcHeight" value="175" placeholder="e.g. 175" class="w-full bg-darkBg border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-500 focus:outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Weight (kg)</label>
+                        <input type="number" id="calcWeight" value="82" placeholder="e.g. 82" class="w-full bg-darkBg border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-500 focus:outline-none">
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <button onclick="calculateFitnessStats()" class="w-full py-3.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-black font-extrabold text-sm transition-all shadow-lg shadow-brand-500/20">
+                        Calculate Metrics
+                    </button>
+                </div>
+
+                <!-- Results Output -->
+                <div id="calcResults" class="mt-8 pt-8 border-t border-gray-800 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                    <div class="p-4 rounded-2xl bg-darkBg border border-gray-800">
+                        <div class="text-xs text-gray-400">Estimated BMI</div>
+                        <div id="bmiValue" class="font-display font-black text-2xl text-brand-400 mt-1">26.8</div>
+                        <div id="bmiCategory" class="text-[11px] text-yellow-400 font-semibold mt-1">Overweight</div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-darkBg border border-gray-800">
+                        <div class="text-xs text-gray-400">Fat Loss Calories</div>
+                        <div id="calorieValue" class="font-display font-black text-2xl text-emerald-400 mt-1">1,850 kcal</div>
+                        <div class="text-[11px] text-gray-400 mt-1">Daily Target</div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-darkBg border border-gray-800">
+                        <div class="text-xs text-gray-400">Recommended Water</div>
+                        <div id="waterValue" class="font-display font-black text-2xl text-blue-400 mt-1">2.9 L</div>
+                        <div class="text-[11px] text-gray-400 mt-1">Daily Hydration</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section — real numbers only; client stories added with permission -->
+    <section id="reviews" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <div class="inline-flex items-center gap-2 text-yellow-400 text-sm font-bold">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">98% Recommendation Rate</h2>
+                <p class="text-gray-400 text-sm">Over 225 reviews from clients across Dartmouth &amp; Halifax — on the 360fit Facebook page, in their own words.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Real aggregate proof -->
+                <div class="glass-card rounded-2xl p-6 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="font-display font-black text-4xl text-brand-400">98%</div>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            of reviewers recommend 360fit — 225 reviews and counting on Facebook. No cherry-picking: read every one of them where they were posted.
+                        </p>
+                    </div>
+                    <a href="https://www.facebook.com/360fit" target="_blank" rel="noopener" class="inline-flex items-center text-brand-400 font-bold text-sm hover:text-brand-300 pt-2">
+                        <i class="fa-brands fa-facebook mr-2"></i> Read the reviews on Facebook
+                    </a>
+                </div>
+
+                <!-- Client stories placeholder -->
+                <div class="glass-card rounded-2xl p-6 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="text-brand-400 text-2xl"><i class="fa-solid fa-quote-left"></i></div>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            This is where 360fit clients' own stories will go — their words, their results, shared with their permission.
+                        </p>
+                    </div>
+                    <span class="text-[11px] text-gray-500">Client stories — coming with permission</span>
+                </div>
+
+                <!-- Transformations placeholder -->
+                <div class="glass-card rounded-2xl p-6 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="text-brand-400 text-2xl"><i class="fa-solid fa-camera"></i></div>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Client transformation photos are posted on the 360fit Facebook page — real members, real changes, posted with their OK.
+                        </p>
+                    </div>
+                    <a href="https://www.facebook.com/360fit" target="_blank" rel="noopener" class="inline-flex items-center text-brand-400 font-bold text-sm hover:text-brand-300 pt-2">
+                        <i class="fa-brands fa-facebook mr-2"></i> See them on Facebook
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation / Intake Form Section -->
+    <section id="intake" class="py-24 bg-cardBg/80 border-t border-gray-800 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+                <div class="text-center max-w-xl mx-auto mb-10 space-y-3">
+                    <span class="text-brand-400 font-bold text-xs uppercase tracking-widest">Free Consultation</span>
+                    <h2 class="font-display text-3xl font-extrabold text-white">Start Your Transformation</h2>
+                    <p class="text-gray-300 text-sm">Fill out the quick form below and Coach Devin will reach out to schedule your free consultation and strategy call.</p>
+                </div>
+
+                <form id="leadForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Full Name *</label>
+                            <input type="text" required placeholder="John Doe" class="w-full bg-darkBg border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-500 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Phone Number *</label>
+                            <input type="tel" required placeholder="(902) 000-0000" class="w-full bg-darkBg border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-500 focus:outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Email Address *</label>
+                            <input type="email" required placeholder="john@example.com" class="w-full bg-darkBg border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-500 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Primary Fitness Goal</label>
+                            <select class="w-full bg-darkBg border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-500 focus:outline-none">
+                                <option>Fat Loss &amp; Toning</option>
+                                <option>Increase Energy &amp; Stamina</option>
+                                <option>Personal Training (1-on-1)</option>
+                                <option>Group Classes / Boot Camps</option>
+                                <option>Online Coaching (Project Fit)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Tell Us About Yourself &amp; Goals</label>
+                        <textarea rows="3" placeholder="What are your main challenges or goals right now?" class="w-full bg-darkBg border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-500 focus:outline-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 rounded-xl bg-brand-500 hover:bg-brand-400 text-black font-extrabold text-base transition-all shadow-xl shadow-brand-500/20">
+                        Submit &amp; Request Call <i class="fa-solid fa-paper-plane ml-2 text-xs"></i>
+                    </button>
+                    <p class="text-[11px] text-gray-500 text-center">Demo form — on the live site, submissions send straight to the 360fit inbox. Prefer the original? The <a href="https://osdqjt1ztjw.typeform.com/to/wDt0U2Ur" target="_blank" rel="noopener" class="text-brand-400 hover:text-brand-300">Typeform application</a> is live now.</p>
+                </form>
+
+                <div id="formSuccessMessage" class="hidden text-center py-8 space-y-4">
+                    <div class="w-16 h-16 rounded-full bg-brand-500/20 text-brand-400 flex items-center justify-center text-3xl mx-auto">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white">Thank You!</h3>
+                    <p class="text-gray-300 text-sm max-w-md mx-auto">
+                        Your request has been received. Coach Devin or a team member will be in touch shortly.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-brand-400 font-bold text-xs uppercase tracking-widest">Visit 360fit</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">Dartmouth Facility</h2>
+
+                    <div class="space-y-4 text-sm text-gray-300">
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-cardBg border border-gray-800">
+                            <i class="fa-solid fa-location-dot text-brand-500 text-xl mt-1"></i>
+                            <div>
+                                <strong class="text-white block font-bold">Address</strong>
+                                <span>170 Joseph Zatzman Drive, Unit 4<br>Dartmouth, NS B3M 1M3</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-cardBg border border-gray-800">
+                            <i class="fa-solid fa-phone text-brand-500 text-xl mt-1"></i>
+                            <div>
+                                <strong class="text-white block font-bold">Phone Number</strong>
+                                <a href="tel:9024072525" class="hover:text-brand-400">(902) 407-2525</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-cardBg border border-gray-800">
+                            <i class="fa-solid fa-envelope text-brand-500 text-xl mt-1"></i>
+                            <div>
+                                <strong class="text-white block font-bold">Email Address</strong>
+                                <a href="mailto:info@360online.ca" class="hover:text-brand-400">info@360online.ca</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Maps Placeholder / Card -->
+                <div class="lg:col-span-7">
+                    <div class="glass-card rounded-3xl p-4 overflow-hidden border border-gray-800">
+                        <div class="w-full h-80 rounded-2xl bg-darkBg flex flex-col items-center justify-center p-6 text-center relative">
+                            <i class="fa-solid fa-map-location-dot text-5xl text-brand-500/40 mb-4"></i>
+                            <h4 class="font-bold text-white text-lg">360fit Training Facility</h4>
+                            <p class="text-gray-400 text-xs mt-1 max-w-sm">
+                                170 Joseph Zatzman Drive, Unit 4, Dartmouth, Nova Scotia
+                            </p>
+                            <a href="https://maps.google.com/?q=170+Joseph+Zatzman+Drive+Dartmouth+NS" target="_blank" rel="noopener" class="mt-4 px-5 py-2.5 rounded-xl bg-brand-500 text-black font-bold text-xs hover:bg-brand-400 transition-all">
+                                Open in Google Maps <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darkBg border-t border-gray-800 py-12 text-sm text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-black border border-brand-500 flex items-center justify-center font-display font-bold text-brand-500 text-xs">
+                        360
+                    </div>
+                    <span class="font-display font-bold text-white">360fit Dartmouth</span>
+                </div>
+
+                <div class="flex items-center gap-6 text-xs">
+                    <a href="https://www.facebook.com/360fit" target="_blank" class="hover:text-brand-400 flex items-center gap-1">
+                        <i class="fa-brands fa-facebook text-base"></i> Facebook (9.5K)
+                    </a>
+                    <a href="https://osdqjt1ztjw.typeform.com/to/wDt0U2Ur" target="_blank" class="hover:text-brand-400">Typeform Intake</a>
+                    <a href="https://www.360online.ca" target="_blank" class="hover:text-brand-400">Official Site</a>
+                </div>
+
+                <div class="text-xs text-gray-500 text-center sm:text-right">
+                    © 2026 360fit High Intensity Fitness. All rights reserved.<br>
+                    <span class="text-gray-600">Concept redesign — not the live 360online.ca yet.</span>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Fitness Calculator Function
+        function calculateFitnessStats() {
+            const age = parseFloat(document.getElementById('calcAge').value) || 30;
+            const height = parseFloat(document.getElementById('calcHeight').value) || 170;
+            const weight = parseFloat(document.getElementById('calcWeight').value) || 75;
+            const gender = document.getElementById('calcGender').value;
+
+            // BMI Calculation: weight (kg) / (height (m))^2
+            const heightInMeters = height / 100;
+            const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(1);
+
+            let category = "Normal Weight";
+            if (bmi < 18.5) category = "Underweight";
+            else if (bmi >= 25 && bmi < 29.9) category = "Overweight";
+            else if (bmi >= 30) category = "Obese";
+
+            // BMR Calculation (Mifflin-St Jeor)
+            let bmr = 10 * weight + 6.25 * height - 5 * age;
+            if (gender === 'male') {
+                bmr += 5;
+            } else {
+                bmr -= 161;
+            }
+
+            // Fat Loss Calorie Target (TDEE ~ 1.375 light-moderate active minus 400 deficit)
+            const fatLossCalories = Math.round((bmr * 1.375) - 400);
+
+            // Water Target (35 ml per kg)
+            const waterLiters = ((weight * 0.035)).toFixed(1);
+
+            // Update UI
+            document.getElementById('bmiValue').innerText = bmi;
+            document.getElementById('bmiCategory').innerText = category;
+            document.getElementById('calorieValue').innerText = fatLossCalories.toLocaleString() + " kcal";
+            document.getElementById('waterValue').innerText = waterLiters + " L";
+        }
+
+        // Form Submit Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            document.getElementById('leadForm').classList.add('hidden');
+            document.getElementById('formSuccessMessage').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
